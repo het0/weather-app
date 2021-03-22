@@ -1,6 +1,5 @@
 import React from "react";
 
-import { WEATHER_TYPE } from "constants/weather_type";
 import { useWeather } from "hooks/weather";
 
 import { Layout } from "./components/Layout/Layout";
