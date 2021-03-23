@@ -6,11 +6,8 @@ export const Container = styled.div`
 `;
 
 export const Text = styled.div`
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: normal;
+  font-weight: bold;
   font-size: 18px;
-  line-height: 21px;
   color: #ffffff;
   text-align: center;
 `;

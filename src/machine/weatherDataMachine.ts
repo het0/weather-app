@@ -5,7 +5,7 @@ import { LOAD_WEATHER_DATA, START_WEATHER_TIMER } from "@constants/actions";
 import { REFRESH_TIME } from "@constants/constants";
 import { timeDiff, getWeatherType } from "@helpers/helpers";
 import WeatherAPI from "@services/WeatherAPI";
-import { LocalStorage } from "@services/LocalStorage";
+import { Storage } from "@services/Storage";
 import { WeatherContext, WeatherAPIResponse, WeatherEvents } from "types/types";
 
 type WeatherEvent = EventObject & {
@@ -20,8 +20,8 @@ const weatherDataMachine = (ctx: WeatherContext) =>
       context: {
         name: "",
         temp: 0,
-        hum: null,
-        wind: null,
+        hum: 0,
+        wind: 0,
         date: null,
         type: null,
         error: null,
@@ -49,9 +49,9 @@ const weatherDataMachine = (ctx: WeatherContext) =>
                 if (event.lat && event.lon) {
                   return WeatherAPI.getWeatherByCoords(event.lat, event.lon);
                 }
-                return WeatherAPI.getWeatherByCityName(
-                  event.name ? event.name : ctx.name
-                );
+                return WeatherAPI.getWeatherByCityName(event.name);
+              } else {
+                return WeatherAPI.getWeatherByCityName(ctx.name);
               }
             },
             onDone: {
@@ -65,7 +65,7 @@ const weatherDataMachine = (ctx: WeatherContext) =>
                   date: new Date(),
                   type: getWeatherType(data.data.weather[0].main),
                 };
-                LocalStorage.set("weather", newState);
+                Storage.set("weather", newState);
                 return newState;
               }),
             },
@@ -85,9 +85,14 @@ const weatherDataMachine = (ctx: WeatherContext) =>
         },
       },
       on: {
-        [LOAD_WEATHER_DATA]: {
-          target: "loading",
-        },
+        [LOAD_WEATHER_DATA]: [
+          {
+            target: "loading",
+            cond: ctx =>
+              REFRESH_TIME - timeDiff(new Date(ctx.date), new Date()) < 0,
+          },
+          { target: "idle" },
+        ],
         [START_WEATHER_TIMER]: {
           target: "idle",
         },

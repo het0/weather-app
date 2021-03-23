@@ -96,5 +96,5 @@ export const SidePanelRow = styled.div<SidePanelRowProps>`
   width: 100%;
   margin-top: ${props => props.top}px;
   font-size: ${props => (props.header ? 24 : 18)}px;
-  font-weight: ${props => (props.header ? "bold" : "normal")};
+  font-weight: bold;
 `;

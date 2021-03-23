@@ -3,10 +3,10 @@
   "name": "Weather: Do I need an umbrella?",
   "icons": [],
   "start_url": "/",
-  "background_color": "#3367D6",
+  "background_color": "#fff",
   "display": "standalone",
   "scope": "/",
-  "theme_color": "#3367D6",
+  "theme_color": "#fff",
   "shortcuts": [],
   "description": "Weather forecast information",
   "screenshots": []

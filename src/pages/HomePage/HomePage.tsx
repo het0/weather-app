@@ -21,7 +21,7 @@ const HomePage = () => {
 
   return (
     <Layout>
-      {/* <Fake3DImage type={type} /> */}
+      <Fake3DImage type={type} />
       <TempContainer>
         <LocationInfo cityName={name} />
         <AdditionalInfo>
@@ -43,10 +43,10 @@ const HomePage = () => {
           <div>Humidity</div>
           <div>{hum} %</div>
         </SidePanelRow>
-        <SidePanelRow top={60} header>
+        {/* <SidePanelRow top={60} header>
           Other locations
         </SidePanelRow>
-        <HorizontalLine />
+        <HorizontalLine /> */}
       </SidePanel>
     </Layout>
   );

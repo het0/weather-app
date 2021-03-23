@@ -5,7 +5,6 @@ import { GLOBAL_MEDIA_QUERIES } from "@hooks/media";
 const LocationInfoContainer = styled.div`
   display: flex;
   width: 100%;
-  font-family: Roboto;
   font-style: normal;
   font-weight: bold;
   font-size: 24px;
