@@ -17,17 +17,17 @@ import {
 } from "./HomePage.styled";
 
 const HomePage = () => {
-  const { name, temp, hum, wind, type } = useWeather();
+  const { name, temp, hum, wind, type, icon } = useWeather();
 
   return (
     <Layout>
-      <Fake3DImage type={type} />
+      <Fake3DImage type={type} icon={icon} />
       <TempContainer>
         <LocationInfo cityName={name} />
         <AdditionalInfo>
           <Temp temp={temp} />
           <VerticalLine />
-          <Icon type={type} />
+          <Icon type={type} icon={icon} />
         </AdditionalInfo>
       </TempContainer>
       <SidePanel>

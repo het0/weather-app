@@ -10,6 +10,7 @@ import {
 
 export interface WeatherContext {
   name: string;
+  icon: string;
   temp: number;
   hum: number;
   wind: number;

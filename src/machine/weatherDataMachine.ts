@@ -19,6 +19,7 @@ const weatherDataMachine = (ctx: WeatherContext) =>
       initial: "initial",
       context: {
         name: "",
+        icon: "",
         temp: 0,
         hum: 0,
         wind: 0,
@@ -64,6 +65,7 @@ const weatherDataMachine = (ctx: WeatherContext) =>
                   wind: data.data.wind.speed,
                   date: new Date(),
                   type: getWeatherType(data.data.weather[0].main),
+                  icon: data.data.weather[0].icon,
                 };
                 Storage.set("weather", newState);
                 return newState;
@@ -88,8 +90,14 @@ const weatherDataMachine = (ctx: WeatherContext) =>
         [LOAD_WEATHER_DATA]: [
           {
             target: "loading",
-            cond: ctx =>
-              REFRESH_TIME - timeDiff(new Date(ctx.date), new Date()) < 0,
+            cond: (ctx, event) => {
+              if (ctx.name && ctx.name !== event.name) {
+                return true;
+              }
+              return (
+                REFRESH_TIME - timeDiff(new Date(ctx.date), new Date()) < 0
+              );
+            },
           },
           { target: "idle" },
         ],
