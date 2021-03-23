@@ -1,3 +1,4 @@
 export const LOAD_GEO_DATA = "LOAD_GEO_DATA";
 export const LOAD_WEATHER_DATA = "LOAD_WEATHER_DATA";
 export const START_WEATHER_TIMER = "START_WEATHER_TIMER";
+export const RETRY = "RETRY";

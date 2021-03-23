@@ -1,8 +1,8 @@
 import styled from "@emotion/styled";
 
-import { GLOBAL_MEDIA_QUERIES } from "hooks/media";
+import { GLOBAL_MEDIA_QUERIES } from "@hooks/media";
 
-const TempContainer = styled.div`
+export const TempContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: auto;
@@ -27,7 +27,7 @@ const TempContainer = styled.div`
   }
 `;
 
-const AdditionalInfo = styled.div`
+export const AdditionalInfo = styled.div`
   display: flex;
   width: 100%;
   padding-top: 20px;
@@ -43,7 +43,7 @@ const AdditionalInfo = styled.div`
   }
 `;
 
-const VerticalLine = styled.div`
+export const VerticalLine = styled.div`
   display: flex;
   height: auto;
   border-left: 1px solid rgba(255, 255, 255, 0.2);
@@ -58,14 +58,14 @@ const VerticalLine = styled.div`
   }
 `;
 
-const HorizontalLine = styled.div`
+export const HorizontalLine = styled.div`
   display: flex;
   width: 100%;
   border-top: 1px solid rgba(255, 255, 255, 0.2);
   margin-top: 20px;
 `;
 
-const SidePanel = styled.div`
+export const SidePanel = styled.div`
   display: flex;
   flex-direction: column;
   width: 485px;
@@ -85,7 +85,12 @@ const SidePanel = styled.div`
   }
 `;
 
-const SidePanelRow = styled.div`
+type SidePanelRowProps = {
+  header?: boolean;
+  top?: number;
+};
+
+export const SidePanelRow = styled.div<SidePanelRowProps>`
   display: flex;
   justify-content: ${props => (props.header ? "flex-start" : "space-between")};
   width: 100%;
@@ -93,12 +98,3 @@ const SidePanelRow = styled.div`
   font-size: ${props => (props.header ? 24 : 18)}px;
   font-weight: ${props => (props.header ? "bold" : "normal")};
 `;
-
-export {
-  TempContainer,
-  AdditionalInfo,
-  VerticalLine,
-  HorizontalLine,
-  SidePanel,
-  SidePanelRow,
-};

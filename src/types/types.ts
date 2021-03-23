@@ -1,5 +1,12 @@
-import { WEATHER_TYPE } from "constants/weather_type";
 import { AxiosError } from "axios";
+
+import { WEATHER_TYPE } from "@constants/weather_type";
+import {
+  LOAD_WEATHER_DATA,
+  START_WEATHER_TIMER,
+  RETRY,
+  LOAD_GEO_DATA,
+} from "@constants/actions";
 
 export interface WeatherContext {
   name: string;
@@ -10,6 +17,20 @@ export interface WeatherContext {
   type: WEATHER_TYPE;
   error: AxiosError;
 }
+
+export type WeatherEvents =
+  | {
+      type: typeof LOAD_WEATHER_DATA;
+      lat?: number;
+      lon?: number;
+      name?: string;
+    }
+  | {
+      type: typeof RETRY;
+    }
+  | {
+      type: typeof START_WEATHER_TIMER;
+    };
 
 export interface GeoContext {
   geoName: string;
@@ -47,6 +68,24 @@ export interface WeatherAPIResponse {
   wind: { speed: number; deg: number };
 }
 
+export type GeoEvents =
+  | {
+      type: typeof LOAD_GEO_DATA;
+      lat: number;
+      lon: number;
+    }
+  | {
+      type: typeof RETRY;
+    };
+
+export interface GeoStateSchema {
+  states: {
+    idle: {};
+    loading: {};
+    loaded: {};
+    failure: {};
+  };
+}
 export interface GeoAPIResponse {
   results: [
     {

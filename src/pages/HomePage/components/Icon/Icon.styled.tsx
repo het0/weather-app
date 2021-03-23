@@ -1,11 +1,11 @@
 import styled from "@emotion/styled";
 
-const Container = styled.div`
+export const Container = styled.div`
   display: flex;
   flex-direction: column;
 `;
 
-const Text = styled.div`
+export const Text = styled.div`
   font-family: Roboto;
   font-style: normal;
   font-weight: normal;
@@ -15,7 +15,11 @@ const Text = styled.div`
   text-align: center;
 `;
 
-const IconContainer = styled.div`
+export type IconContainerProps = {
+  svg: string;
+};
+
+export const IconContainer = styled.div<IconContainerProps>`
   position: relative;
   display: inline-block;
   width: 120px;
@@ -28,5 +32,3 @@ const IconContainer = styled.div`
     fill: white;
   }
 `;
-
-export { Container, IconContainer, Text };

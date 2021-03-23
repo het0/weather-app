@@ -1,11 +1,11 @@
 import React from "react";
 
-import { WEATHER_TYPE } from "constants/weather_type";
-import SunnyIcon from "assets/wi-day-sunny.svg";
-import SnowIcon from "assets/wi-day-snow.svg";
-import RainIcon from "assets/wi-day-rain.svg";
-import ThunderIcon from "assets/wi-day-thunderstorm.svg";
-import CloudyIcon from "assets/wi-cloudy.svg";
+import { WEATHER_TYPE } from "@constants/weather_type";
+import SunnyIcon from "@assets/wi-day-sunny.svg";
+import SnowIcon from "@assets/wi-day-snow.svg";
+import RainIcon from "@assets/wi-day-rain.svg";
+import ThunderIcon from "@assets/wi-day-thunderstorm.svg";
+import CloudyIcon from "@assets/wi-cloudy.svg";
 
 import { IconContainer, Container, Text } from "./Icon.styled";
 

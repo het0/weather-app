@@ -2,10 +2,14 @@ import React from "react";
 
 import { Container } from "./Layout.styled";
 
-type Props = Readonly<React.PropsWithChildren>;
+type Props = Readonly<{
+  children: React.ReactNode;
+}>;
 
-const Layout = ({ children }: Props) => {
+const LayoutComp = ({ children }: Props) => {
   return <Container>{children}</Container>;
 };
+
+const Layout = React.memo(LayoutComp);
 
 export { Props, Layout };

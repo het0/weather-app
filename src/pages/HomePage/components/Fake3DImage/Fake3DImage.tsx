@@ -1,16 +1,16 @@
 import React, { useEffect } from "react";
 
-import RainImage from "assets/img/rainy.jpg";
-import RainImageMap from "assets/img/rainy_map.jpg";
+import RainImage from "@assets/img/rainy.jpg";
+import RainImageMap from "@assets/img/rainy_map.jpg";
 
-import SnowImg from "assets/img/snow.jpg";
-import SnowImgMap from "assets/img/snow_map.jpg";
+import SnowImg from "@assets/img/snow.jpg";
+import SnowImgMap from "@assets/img/snow_map.jpg";
 
-import SunnyImg from "assets/img/sunny.jpg";
-import SunnyImgMap from "assets/img/sunny_map.jpg";
+import SunnyImg from "@assets/img/sunny.jpg";
+import SunnyImgMap from "@assets/img/sunny_map.jpg";
 
-import ThunderImg from "assets/img/thunder.jpg";
-import ThunderImgMap from "assets/img/thunder_map.jpg";
+import ThunderImg from "@assets/img/thunder.jpg";
+import ThunderImgMap from "@assets/img/thunder_map.jpg";
 
 import { Fake3DContainer } from "./Fake3DImage.styled";
 import { SceneHandler } from "./SceneHandler";

@@ -1,6 +1,6 @@
 import axios, { AxiosInstance } from "axios";
 
-import { REQUEST_TIMEOUT } from "constants/api";
+import { REQUEST_TIMEOUT } from "@constants/api";
 
 class HttpClient {
   protected readonly instance: AxiosInstance;

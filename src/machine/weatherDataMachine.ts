@@ -1,19 +1,19 @@
 import { Machine, assign, EventObject } from "xstate";
 import { AxiosResponse } from "axios";
 
-import { LOAD_WEATHER_DATA, START_WEATHER_TIMER } from "constants/actions";
-import { REFRESH_TIME } from "constants/constants";
-import { timeDiff, getWeatherType } from "helpers/helpers";
-import WeatherAPI from "services/WeatherAPI";
-import { LocalStorage } from "services/LocalStorage";
-import { WeatherContext, WeatherAPIResponse } from "types/types";
+import { LOAD_WEATHER_DATA, START_WEATHER_TIMER } from "@constants/actions";
+import { REFRESH_TIME } from "@constants/constants";
+import { timeDiff, getWeatherType } from "@helpers/helpers";
+import WeatherAPI from "@services/WeatherAPI";
+import { LocalStorage } from "@services/LocalStorage";
+import { WeatherContext, WeatherAPIResponse, WeatherEvents } from "types/types";
 
 type WeatherEvent = EventObject & {
   data: AxiosResponse<WeatherAPIResponse>;
 };
 
 const weatherDataMachine = (ctx: WeatherContext) =>
-  Machine<WeatherContext>(
+  Machine<WeatherContext, WeatherEvents>(
     {
       id: "weather-data",
       initial: "initial",
@@ -45,12 +45,14 @@ const weatherDataMachine = (ctx: WeatherContext) =>
           invoke: {
             id: "fetch-weather-data",
             src: (ctx, event) => {
-              if (event.lat && event.lon) {
-                return WeatherAPI.getWeatherByCoords(event.lat, event.lon);
+              if (event.type === LOAD_WEATHER_DATA) {
+                if (event.lat && event.lon) {
+                  return WeatherAPI.getWeatherByCoords(event.lat, event.lon);
+                }
+                return WeatherAPI.getWeatherByCityName(
+                  event.name ? event.name : ctx.name
+                );
               }
-              return WeatherAPI.getWeatherByCityName(
-                event.name ? event.name : ctx.name
-              );
             },
             onDone: {
               target: "idle",

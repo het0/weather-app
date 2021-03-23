@@ -1,5 +1,5 @@
-import { WEATHER_TYPE } from "constants/weather_type";
-import { CITY_QUERY_VAR } from "constants/query_variables";
+import { WEATHER_TYPE } from "@constants/weather_type";
+import { CITY_QUERY_VAR } from "@constants/query_variables";
 import { GeoAPIResponse } from "types/types";
 
 const getQueryParams = function (): { [key: string]: string } {

@@ -6,8 +6,46 @@
     "dev": "razzle start",
     "build": "razzle build --noninteractive",
     "test": "razzle test --env=jsdom",
-    "start": "NODE_ENV=production node build/server.js",
-    "heroku-postbuild": "npm run build"
+    "start": "NODE_ENV=production node build/server.js"
+  },
+  "jest": {
+    "moduleDirectories": [
+      "src",
+      "node_modules"
+    ],
+    "moduleNameMapper": {
+      "@components/(.*)": [
+        "<rootDir>/src/components/$1"
+      ],
+      "@machine/(.*)": [
+        "<rootDir>/src/machine/$1"
+      ],
+      "@constants/(.*)": [
+        "<rootDir>/src/constants/$1"
+      ],
+      "@services/(.*)": [
+        "<rootDir>/src/services/$1"
+      ],
+      "@helpers/(.*)": [
+        "<rootDir>/src/helpers/$1"
+      ],
+      "@assets/(.*)": [
+        "<rootDir>/src/assets/$1"
+      ],
+      "@hooks/(.*)": [
+        "<rootDir>/src/hooks/$1"
+      ],
+      "@types/(.*)": [
+        "<rootDir>/src/types/$1"
+      ]
+    },
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "jsx",
+      "ts",
+      "tsx"
+    ]
   },
   "dependencies": {
     "@emotion/react": "^11.1.5",
@@ -16,10 +54,8 @@
     "axios": "^0.21.1",
     "express": "^4.17.1",
     "glslify-loader": "^2.0.0",
-    "is-heroku": "^2.0.0",
     "raw-loader": "^4.0.2",
     "razzle": "^4.0.3",
-    "razzle-heroku": "^3.0.0",
     "react": "^17.0.1",
     "react-cookie": "^4.0.3",
     "react-dom": "^17.0.1",
@@ -30,11 +66,13 @@
     "xstate": "^4.16.2"
   },
   "devDependencies": {
+    "@types/jest": "^26.0.21",
     "babel-preset-razzle": "^4.0.3",
     "html-webpack-plugin": "^5.3.1",
     "mini-css-extract-plugin": "0.9.0",
     "postcss": "8.2.4",
     "razzle-dev-utils": "^4.0.3",
+    "typescript": "^4.2.3",
     "webpack": "^5.26.3",
     "webpack-dev-server": "3.11.0"
   }

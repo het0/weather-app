@@ -4,7 +4,7 @@ import {
   GOOGLE_MAPS_API_BASE_URL,
   GOOGLE_MAPS_API_KEY,
   GOOGLE_MAPS_GEOCODE_ENDPOINT,
-} from "constants/api";
+} from "@constants/api";
 import { GeoAPIResponse } from "types/types";
 
 import { HttpClient } from "./HttpClient";

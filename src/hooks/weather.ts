@@ -5,10 +5,10 @@ import {
   LOAD_GEO_DATA,
   LOAD_WEATHER_DATA,
   START_WEATHER_TIMER,
-} from "constants/actions";
-import { getCityFromQueryParams } from "helpers/helpers";
-import { weatherDataMachine } from "machine/weatherDataMachine";
-import { geolocationMachine } from "machine/geolocationMachine";
+} from "@constants/actions";
+import { getCityFromQueryParams } from "@helpers/helpers";
+import { weatherDataMachine } from "@machine/weatherDataMachine";
+import { geolocationMachine } from "@machine/geolocationMachine";
 import { useCookies } from "react-cookie";
 
 const useWeather = () => {
@@ -21,8 +21,6 @@ const useWeather = () => {
   const queryName = getCityFromQueryParams();
   const cookiesName = cookies.weather ? cookies.weather.name : false;
   const geoName = geolocation.context.geoName;
-
-  console.log(geolocation.context);
 
   useEffect(() => {
     if (navigator.geolocation && !queryName && !cookiesName) {
@@ -43,7 +41,7 @@ const useWeather = () => {
   }, []);
 
   useEffect(() => {
-    if (!weather.context.name && (queryName || geoName)) {
+    if (queryName || geoName) {
       sendWeather(LOAD_WEATHER_DATA, { name: queryName || geoName });
     }
   }, [geoName]);

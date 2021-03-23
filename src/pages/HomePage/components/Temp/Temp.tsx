@@ -6,8 +6,10 @@ type Props = Readonly<{
   temp: number;
 }>;
 
-const Temp = ({ temp }: Props) => {
+const TempComp = ({ temp }: Props) => {
   return <Container>{temp}°</Container>;
 };
+
+const Temp = React.memo(TempComp);
 
 export { Props, Temp };

@@ -4,7 +4,7 @@ import {
   WEATHER_API_BASE_URL,
   WEATHER_API_KEY,
   WEATHER_DATA_ENDPOINT,
-} from "constants/api";
+} from "@constants/api";
 import { WeatherAPIResponse } from "types/types";
 
 import { HttpClient } from "./HttpClient";

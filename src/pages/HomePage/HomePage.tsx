@@ -1,6 +1,6 @@
 import React from "react";
 
-import { useWeather } from "hooks/weather";
+import { useWeather } from "@hooks/weather";
 
 import { Layout } from "./components/Layout/Layout";
 import { Fake3DImage } from "./components/Fake3DImage/Fake3DImage";

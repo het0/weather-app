@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 
-import { GLOBAL_MEDIA_QUERIES } from "hooks/media";
+import { GLOBAL_MEDIA_QUERIES } from "@hooks/media";
 
 const LocationInfoContainer = styled.div`
   display: flex;

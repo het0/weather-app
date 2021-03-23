@@ -29,28 +29,30 @@ server
     } else {
       res.status(200).send(
         `<!doctype html>
-    <html lang="">
-    <head>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta charset="utf-8" />
-        <title>Welcome to Razzle</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        ${
-          assets.client.css
-            ? `<link rel="stylesheet" href="${assets.client.css}">`
-            : ""
-        }
-        ${
-          process.env.NODE_ENV === "production"
-            ? `<script src="${assets.client.js}" defer></script>`
-            : `<script src="${assets.client.js}" defer crossorigin></script>`
-        }
-        <link href='https://fonts.googleapis.com/css?family=Roboto:100,300,700,400' rel='stylesheet' type='text/css'>
-    </head>
-    <body>
-        <div id="root">${markup}</div>
-    </body>
-</html>`
+          <html lang="en">
+            <head>
+                <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+                <meta charset="utf-8" />
+                <title>Welcome to Razzle</title>
+                <meta name="viewport" content="width=device-width, initial-scale=1">
+                <meta name="description" content="Weather forecast information">
+                ${
+                  assets.client.css
+                    ? `<link rel="stylesheet" href="${assets.client.css}">`
+                    : ""
+                }
+                ${
+                  process.env.NODE_ENV === "production"
+                    ? `<script src="${assets.client.js}" defer></script>`
+                    : `<script src="${assets.client.js}" defer crossorigin></script>`
+                }
+                <link rel="manifest" href="/manifest.json" />
+                <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+            </head>
+            <body>
+                <div id="root">${markup}</div>
+            </body>
+        </html>`
       );
     }
   });
