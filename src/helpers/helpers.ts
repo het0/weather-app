@@ -14,7 +14,9 @@ const getQueryParams = function (): { [key: string]: string } {
 
 export const getCityFromQueryParams = function (): string | false {
   const queryParams = getQueryParams();
-  return queryParams[CITY_QUERY_VAR] ? queryParams[CITY_QUERY_VAR] : false;
+  return queryParams[CITY_QUERY_VAR]
+    ? decodeURI(queryParams[CITY_QUERY_VAR])
+    : false;
 };
 
 export const timeDiff = function (start: Date, end: Date): number {
