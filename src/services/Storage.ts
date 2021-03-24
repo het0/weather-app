@@ -9,6 +9,7 @@ class Storage {
     const currentDate = new Date();
     cookies.set(name, JSON.stringify(data), {
       expires: new Date(currentDate.getTime() + REFRESH_TIME),
+      sameSite: "strict",
     });
   }
   static get(name: string) {

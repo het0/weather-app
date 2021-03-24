@@ -12,6 +12,7 @@ type Props = Readonly<{
 const ICON_TEXT = {
   [WEATHER_TYPE.CLOUDY]: "Cloudy",
   [WEATHER_TYPE.SUN]: "Sunny",
+  [WEATHER_TYPE.CLEAR]: "Clear",
   [WEATHER_TYPE.THUNDER]: "Thunder",
   [WEATHER_TYPE.RAIN]: "Rain",
   [WEATHER_TYPE.SNOW]: "Snow",
@@ -23,7 +24,10 @@ const IconComp = ({ icon, type }: Props) => {
   }
   return (
     <Container>
-      <Img src={`http://openweathermap.org/img/wn/${icon}@2x.png`} />
+      <Img
+        src={`https://openweathermap.org/img/wn/${icon}@2x.png`}
+        alt="Weather icon"
+      />
       <Text>{ICON_TEXT[type]}</Text>
     </Container>
   );

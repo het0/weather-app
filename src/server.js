@@ -47,7 +47,12 @@ server
                     : `<script src="${assets.client.js}" defer crossorigin></script>`
                 }
                 <link rel="manifest" href="/manifest.json" />
-                <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+                <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+                <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" />
+                <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" media="print" onload="this.media='all'" />
+                <noscript>
+                  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" />
+                </noscript>
             </head>
             <body>
                 <div id="root">${markup}</div>

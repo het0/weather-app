@@ -4,4 +4,5 @@ export enum WEATHER_TYPE {
   THUNDER = "thunder",
   CLOUDY = "cloudy",
   SNOW = "snow",
+  CLEAR = "clear",
 }

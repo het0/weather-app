@@ -14,5 +14,6 @@ export const Text = styled.div`
 `;
 
 export const Img = styled.img`
-  width: 70px;
+  width: 100px;
+  image-rendering: pixelated;
 `;

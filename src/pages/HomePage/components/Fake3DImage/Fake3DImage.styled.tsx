@@ -26,5 +26,5 @@ export const Fake3DContainer = styled.div<Fake3DContainerProps>`
   z-index: -1;
   transition: background-color 1000ms linear;
   background-color: ${props => BACKGROUND_COLOR_MAP[props.color]};
-  ${props => props.isDay && "filter: brightness(0.7);"}
+  ${props => !props.isDay && "filter: brightness(0.5);"}
 `;
